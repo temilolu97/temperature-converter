@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="card my-auto">
+        <div class="card-header">
+          Convert from Celsius to Farenheit
+        </div>
+        <div class="card-body">
+          
+            <div>
+              <h3>Celsius</h3>
+              <input class="form-control" id="celsius" value="">
+            </div>
+            <div>
+                <h3>farenheit</h3>
+                <input class="form-control" id="farenheit" value="">
+            </div>
+            <div>
+              <button class="btn btn-primary" id="button" type="submit">Convert</button>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+<script>
+  var typeOFTemp = "celsius";
+  document.getElementById("button").onclick = convert;
+
+  document.getElementById("celsius").onchange = function() {
+    typeOFTemp = "celsius";
+  }
+  document.getElementById("farenheit").onchange = function() {
+    typeOFTemp = "farenheit";
+  }
+  function convert(temp){
+    var celsius =document.getElementById("celsius").value;
+      celsius= parseFloat(celsius);
+    var farenheit =document.getElementById("farenheit").value;
+      farenheit= parseFloat(farenheit);
+    var cToF;
+    var fToC;
+
+    if(typeOFTemp === "celsius"){
+      cToF= celsius * (9/5) +32;
+      document.getElementById("farenheit").value= Math.round(cToF);
+    }
+    else if( typeOFTemp === "farenheit"){
+      fToC = (farenheit - 32)*(5/9);
+      document.getElementById("celsius").value =Math.round(fToC);
+    }
+    document.getElementById("celsius").innerHTML=cToF;
+    document.getElementById("farenheit").innerHTML= fToC;
+  }
+  
+  
+</script>
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+
+</html>
